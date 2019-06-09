@@ -2,6 +2,7 @@
 sudo apt-get install ntfs-3g
 
 #Mount the hard disk to somewhere in the file system
+#In this case, I'm mounting an external hard drive that is plugged in, but not yet mounted
 mkdir ~/drive
 sudo mount -o uid=pi,gid=pi,umask=0022 /dev/sda1 ~/drive/
 
