@@ -1,0 +1,31 @@
+#Give your PI a static IP address by appending this at the end of /etc/dhcpcd.conf
+interface eth0
+static ip_address=10.0.0.1/16
+
+#Reset connection to apply new static IP
+sudo ifconfig eth0 down
+sudo ifconfig eth0 up
+
+#Install server
+sudo apt-get install isc-dhcp-server
+
+#Edit the 'Interfaces' values to include the interfaces you want the server to run on; in /etc/default/isc-dhcp-server
+INTERFACESv4="eth0"
+INTERFACESv6=""
+
+#Appended at the end of /etc/dhcp/dhcpd.conf
+#My home network is already running 192.168.1.0, so I went with the class B 10.0.0.0 IP range
+subnet 10.0.0.0 netmask 255.255.0.0 {
+  range 10.0.0.1 10.0.0.100;
+  default-lease-time 600;
+  max-lease-time 7200;
+}
+
+#Reset service to apply new settings
+sudo service isc-dhcp-server restart
+
+#If anything goes wrong, or if you want to see if it worked, use this to get the most recent system log
+journalctl -xe
+
+#In windows, this firewall rule must be set to 'allow', if you want it to be ping-able for testing
+File and Printer Sharing (Echo Request - ICMPv4-In)

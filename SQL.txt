@@ -1,0 +1,18 @@
+#Install
+sudo apt-get install mysql-server
+
+#Creating a database with a table
+CREATE DATABASE Test;
+CREATE TABLE t1 (a TEXT, b INT);
+INSERT INTO t1 VALUES ("Hello",1);
+
+#Creating a user, and giving it privelege on a database
+CREATE USER 'chris'@'10.0.0.2' IDENTIFIED BY 'p@ssw0rd';
+GRANT ALL PRIVILEGES ON Test.* TO 'chris'@'10.0.0.2';
+FLUSH PRIVILEGES;
+
+#Comment out Localhost binding address in /etc/mysql/mariadb.conf.d/50-server.cnf, to get it online if desired
+
+#To access from windows, download MySQL ZIP from here https://dev.mysql.com/downloads/mysql/
+#And use the 'Mysql.exe' located in the bin folder, as you would on linux command line
+

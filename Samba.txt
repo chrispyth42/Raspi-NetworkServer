@@ -1,0 +1,27 @@
+#Install ntfs-3g to have full read/write access to ntfs file systems on raspbian linux
+sudo apt-get install ntfs-3g
+
+#Mount the hard disk to somewhere in the file system
+mkdir ~/drive
+sudo mount -o uid=pi,gid=pi,umask=0022 /dev/sda1 ~/drive/
+
+#Install samba server
+sudo apt-get install samba samba-common-bin
+
+#Append this at the end of /etc/samba/smb.conf
+[share]
+Comment = Pi shared folder
+Path = /home/pi/drive/share
+Browseable = yes
+Writeable = Yes
+only guest = no
+create mask = 0777
+directory mask = 0777
+Public = yes
+Guest ok = yes
+
+#Add a password to the share for your user
+sudo smbpasswd -a pi
+
+#To set a job to run on a regular basis, such as backing something up, edit the crontab file
+crontab -e
