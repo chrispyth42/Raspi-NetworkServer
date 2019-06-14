@@ -37,6 +37,7 @@ forwarders {
 
 #The following are the 4 respective configuration files to accompany the 4 zones defined above
 #I've since changed my 192.168.1.0 device addresses to be static with better numbers, instead of the router's DHCP addresses
+#As well as assigning my Desktop a domain name
 #But at the time of configuring, this is what they were
 ##db.home.local##
 home.local. IN SOA ServerPi.home.local. hostmaster.home.local. (
