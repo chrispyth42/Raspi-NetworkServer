@@ -14,4 +14,4 @@ An installation and setup guide for the DNS server package 'bind9'. On my networ
 A guide on how to install the popular database package 'mysql-server', including instructions on how to create a database and grant priveleged access, as well as how to get the server online
 
 ### Samba.txt
-Instructions on what package is needed to give the PI ntfs file support (in order to successfully mount and use an external NTFS hard drive), and how to install the Samba fileshare server and configure it to share a directory on the network.  
+Instructions on what package is needed to give the PI ntfs file system support (in order to successfully mount and use an external NTFS hard drive), and how to install the Samba fileshare server and configure it to share a directory on the network.  
