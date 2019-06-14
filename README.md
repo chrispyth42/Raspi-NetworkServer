@@ -1,5 +1,5 @@
 # Raspi-NetworkServer
-A repository of documentation files, containing steps that I took to make a raspberry pi be a server to manage a small network. Running on command line only, raspbian (debian) linux. THese files serving as a manual in case I need to make changes to the settings, or need to repeat the process later on
+A repository of documentation files, containing steps that I took to make a raspberry pi be a server to manage a small network. Running on command line only, raspbian (debian) linux. These files serving as a manual in case I need to make changes to the settings, or need to repeat the process later on
 
 ### Apache-PHP.txt
 A brief list of commands on how to install and test Apache2 and PHP
