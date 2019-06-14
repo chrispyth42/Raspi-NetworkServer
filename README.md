@@ -8,7 +8,7 @@ A brief list of commands on how to install and test Apache2 and PHP
 An installation guide for the package 'isc-dhcp-server', and how to configure it to distribute IPs over the eth0 interface for the 10.0.0.0/16 IP range
 
 ### DNS.txt
-An installation and setup guide for the DNS server package 'bind9'. On my network topology with consists of an ethernet 10.0.0.0/16 network, and a wireless 192.168.1.0/24 network
+An installation and setup guide for the DNS server package 'bind9'. On my network topology with consists of an ethernet 10.0.0.0/16 network, and a wireless 192.168.1.0/24 network. Also outlining how to manually create local domains and assign domain names to end devices: giving 10.0.0.0 the 'chris.local' suffix, and 192.168.1.0 the 'home.local' suffix
 
 ### SQL.txt
 A guide on how to install the popular database package 'mysql-server', including instructions on how to create a database and grant priveleged access, as well as how to get the server online
