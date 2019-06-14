@@ -5,7 +5,7 @@ A repository of documentation files, containing steps that I took to make a rasp
 A brief list of commands on how to install and test Apache2 and PHP
 
 ### DHCP.txt
-An installation guide for the package 'isc-dhcp-server', and configuring the pi/server to distribute IPs for the 10.0.0.0/16 IP range
+An installation guide for the package 'isc-dhcp-server', and how to configure it to distribute IPs for the 10.0.0.0/16 IP range
 
 ### DNS.txt
 An installation and setup guide for the DNS server package 'bind9'. On my network topology with consists of an ethernet 10.0.0.0/16 network, and a wireless 192.168.0.0/24 network
