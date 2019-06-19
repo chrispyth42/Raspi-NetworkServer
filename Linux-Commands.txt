@@ -1,0 +1,11 @@
+#Views the current network state
+sudo netstat -tulpn
+
+#Gets human readable disk usage
+df -ah
+
+#Gets human readable disk usage for a file/directory
+du -sh
+
+#Command line task manager
+top
