@@ -15,3 +15,6 @@ A guide on how to install the popular database package 'mysql-server', including
 
 ### Samba.txt
 Instructions on what package is needed to give the PI ntfs file system support (in order to successfully mount and use an external NTFS hard drive), and how to install the Samba fileshare server and configure it to share a directory on the network.  
+
+### Linux-Commands.txt
+A document of misc. useful commands that I've come across in working with linux
