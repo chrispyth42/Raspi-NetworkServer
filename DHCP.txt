@@ -1,6 +1,6 @@
 #Give your PI a static IP address by appending this at the end of /etc/dhcpcd.conf
 interface eth0
-static ip_address=10.0.0.1/16
+static ip_address=10.0.0.1/8
 
 #Reset connection to apply new static IP
 sudo ifconfig eth0 down
@@ -14,7 +14,7 @@ INTERFACESv4="eth0"
 INTERFACESv6=""
 
 #Appended at the end of /etc/dhcp/dhcpd.conf
-#My home network is already running 192.168.1.0, so I went with the class B 10.0.0.0 IP range
+#My home network is already running 192.168.1.0, so I went with the class A 10.0.0.0 IP range for fun
 subnet 10.0.0.0 netmask 255.255.0.0 {
   range 10.0.0.1 10.0.0.100;
   default-lease-time 600;
