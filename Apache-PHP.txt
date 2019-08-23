@@ -1,7 +1,7 @@
 https://www.raspberrypi.org/documentation/remote-access/web-server/apache.md
 
 #Initial install:
-sudo apt-get install apache2 php libapache2-mod-php
+sudo apt-get install apache2 php libapache2-mod-php php-mysql  
 
 #Web root is stored at /var/www/html
 #php can be tested by creating a php file, and appending the following into it
