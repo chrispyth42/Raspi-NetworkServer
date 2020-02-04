@@ -2,11 +2,11 @@
 A repository of documentation files, containing steps that I took to configure a raspberry pi to operate as a network server. (running on Raspbian linux). These files serve as a manual in case I need to make changes to the settings, or need to repeat the process later on. This device is configured with the IP address: 192.168.42.2 on Ethernet, and 192.168.1.4 on Wlan 
 
 ### Installed Services
-   DHCP Server
-   DNS Server
-   Samba Fileshare
-   Mysql Server
-   Apache Webserver
+    DHCP Server
+    DNS Server
+    Samba Fileshare
+    Mysql Server
+    Apache Webserver
 
 ### DHCP
 Is delivered via the package 'isc-dhcp-server'. It's configured to distribute IP addresses on the 192.168.42.0/24 subnet. It configures hosts on that range to use itself as the DNS server, and supplies them DNS suffix 'chris.local'
