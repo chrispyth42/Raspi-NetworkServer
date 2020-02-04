@@ -1,20 +1,21 @@
 # Raspi-NetworkServer
-A repository of documentation files, containing steps that I took to make a raspberry pi be a server to manage a small network. Running on command line only, raspbian (debian) linux. These files serving as a manual in case I need to make changes to the settings, or need to repeat the process later on
+A repository of documentation files, containing steps that I took to configure a raspberry pi to operate as a network server. (running on Raspbian linux). These files serve as a manual in case I need to make changes to the settings, or need to repeat the process later on. This device is configured with the IP address: 192.168.42.2 on Ethernet, and 192.168.1.4 on Wlan 
 
-### Apache-PHP.txt
-A brief list of commands on how to install and test Apache2 and PHP
+### Installed Services
+DHCP Server
+DNS Server
+Samba Fileshare
+Mysql Server
+Apache Webserver
 
-### DHCP.txt
-An installation guide for the package 'isc-dhcp-server', and how to configure it to distribute IPs over the eth0 interface for the 10.0.0.0/8 IP range
+### DHCP
+Is delivered via the package 'isc-dhcp-server'. It's configured to distribute IP addresses on the 192.168.42.0/24 subnet. It configures hosts on that range to use itself as the DNS server, and supplies them DNS suffix 'chris.local'
 
-### DNS.txt
-An installation and setup guide for the DNS server package 'bind9'. On my network topology which consists of an ethernet 10.0.0.0/8 network, and a wireless 192.168.1.0/24 network. Also outlining how to manually create local domains and assign domain names to end devices: giving 10.0.0.0 the 'chris.local' suffix, and 192.168.1.0 the 'home.local' suffix
+### DNS
+Is delivered via the package 'bind9'. It has 192.168.1.1 (my home router), and 8.8.8.8 (google) specified as its default domain name servers. This package allows me to manually put in A records for my local network devices, and acts as a local DNS server
 
-### SQL.txt
-A guide on how to install the popular database package 'mysql-server', including instructions on how to create a database and grant priveleged access, as well as how to get the server online
+### Samba Server
+This package makes it incredibly straightforward to bounce files between my windows desktop, and linux raspberry pi. The directory it's running is a share is on an external hard drive; serving as an excellent network attached storage
 
-### Samba.txt
-Instructions on what package is needed to give the PI ntfs file system support (in order to successfully mount and use an external NTFS hard drive), and how to install the Samba fileshare server and configure it to share a directory on the network.  
-
-### Linux-Commands.txt
-A document of misc. useful commands that I've come across in working with linux
+### Apache/Mysql
+These servers, for the most part, work out of the box just fine. The stored documentation I have on them specifies which commands to run to install php along with apache, as well as how to create and grant permission to accounts in MySQL
