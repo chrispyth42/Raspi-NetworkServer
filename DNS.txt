@@ -7,16 +7,7 @@ sudo apt-get install bind9 bind9utils dnsutils
 cd /etc/bind/
 
 #Edit configuration in "named.conf.local", and create these entries 
-#the "home.local" and "chris.local" are both used for lookup, while the opposite are used for reverse lookup
-
-zone "home.local" IN {
-                type master;
-                file "/etc/bind/db.home.local";
-  };
-zone "1.168.192.in-addr.arpa" {
-                type master;
-                file "/etc/bind/db.rev.1.168.192.in-addr.arpa";
-  };
+# "chris.local" is used for lookup, while 0.0.10.in-addr.arpa is used for reverse lookup
 
 zone "chris.local" IN {
                 type master;
@@ -30,42 +21,15 @@ zone "0.0.10.in-addr.arpa" {
   
 #Edit "named.conf.options" to specify other DNS servers that this one references
 #In this case, my home's router, and google's DNS
+
 forwarders {
 		192.168.1.1;
 		8.8.8.8;
 };
 
-#The following are the 4 respective configuration files to accompany the 4 zones defined above
-#I've since changed my 192.168.1.0 device addresses to be static with better numbers, instead of the router's DHCP addresses
-#As well as assigning my Desktop a domain name
-#But at the time of configuring, this is what they were
-##db.home.local##
-home.local. IN SOA ServerPi.home.local. hostmaster.home.local. (
-   2017081401 ; serial
-        8H ; refresh
-        4H ; retry
-        4W ; expire
-        1D ; minimum
-)
-home.local. IN NS ServerPi.home.local.
-home.local. IN MX 10 ServerPi.home.local.
-localhost    IN A 127.0.0.1
-ServerPi     IN A 192.168.1.103
-ClientPi     IN A 192.168.1.173
-router       IN A 192.168.1.1
-
-##db.rev.1.168.192.in-addr.arpa##
-@ IN SOA ServerPi.home.local. hostmaster.home.local. (
-        2017081401 ; serial
-        8H ; refresh
-        4H ; retry
-        4W ; expire
-        1D ; minimum
-)
-          IN NS ServerPi.home.local.
-1         IN PTR router.home.local.
-173       IN PTR ClientPi.home.local.
-103       IN PTR ServerPi.home.local.
+#The following are 2 configuration files to accompany the zones defined above. They need to be created, and with your domain
+#suffix in place of 'chris.local'. And instead of ServerPi.chris.local, use the DNS name that you're going to assign to the
+#server itself instead
 
 ##db.chris.local##
 chris.local. IN SOA ServerPi.chris.local. hostmaster.chris.local. (
@@ -80,7 +44,7 @@ chris.local. IN MX 10 ServerPi.chris.local.
 localhost    IN A 127.0.0.1
 ServerPi     IN A 10.0.0.1
 ClientPi     IN A 10.0.0.3
-Desktop		 IN A 10.0.0.2
+Desktop      IN A 10.0.0.2
 
 ##db.rev.0.0.10.in-addr.arpa##
 @ IN SOA ServerPi.chris.local. hostmaster.chris.local. (
@@ -99,7 +63,7 @@ Desktop		 IN A 10.0.0.2
 #Restarting the service
 sudo service bind9 restart
 
-#Viewing list of domains currently in the server's cache (to see if it's working, and analyze your traffic if you wish)
+#Viewing list of domains currently in the server's cache (to see if it's working, and what addresses are currently in the cache)
 sudo rndc dumpdb -cache
 cat /var/cache/bind/named_dump.db | grep -E "^[a-z].*" | sort
 	
