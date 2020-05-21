@@ -12,6 +12,7 @@ GRANT ALL PRIVILEGES ON Test.* TO 'chris'@'10.0.0.2';
 FLUSH PRIVILEGES;
 
 #Comment out Localhost binding address in /etc/mysql/mariadb.conf.d/50-server.cnf, to get it online if desired
+#for mysql: /etc/mysql/mysql.conf.d/mysqld.cnf
 
 #To access from windows, download MySQL ZIP from here https://dev.mysql.com/downloads/mysql/
 #And use the 'Mysql.exe' located in the bin folder, as you would on linux command line
